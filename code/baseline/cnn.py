@@ -103,7 +103,7 @@ def cnn(x_train, y_train, x_test, y_test):
 		loss='categorical_crossentropy',
 		optimizer=opt_rms,
 		metrics=['accuracy'])
-	model.fit_generator(datagen.flow(
+	model.fit(datagen.flow(
 	                        x_train,
 	                        y_train,
 	                        batch_size=batch_size),
