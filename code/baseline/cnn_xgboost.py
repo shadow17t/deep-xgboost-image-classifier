@@ -13,6 +13,7 @@ from keras.layers import Dense, Activation, Flatten, Dropout, BatchNormalization
 from keras.layers import Conv2D, MaxPooling2D
 from keras.datasets import cifar10
 from keras import regularizers
+from keras import optimizers
 from keras.callbacks import LearningRateScheduler
 from keras.models import model_from_json
 
@@ -32,7 +33,7 @@ def load_cnn_model(X_test, y_test):
 	loaded_model.load_weights("model.h5")
 	 
 	# evaluate loaded model on test data
-	opt_rms = keras.optimizers.rmsprop(lr=0.001,decay=1e-6)
+	opt_rms = optimizers.RMSprop(lr=0.001,decay=1e-6)
 	loaded_model.compile(
 		loss='categorical_crossentropy',
 		optimizer=opt_rms,
