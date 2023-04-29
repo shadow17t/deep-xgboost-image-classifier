@@ -8,6 +8,7 @@ from keras.layers import Dense, Activation, Flatten, Dropout, BatchNormalization
 from keras.layers import Conv2D, MaxPooling2D
 from keras.datasets import cifar10
 from keras import regularizers
+from keras import optimizers
 from keras.callbacks import LearningRateScheduler
 import matplotlib.pyplot as plt
 
@@ -97,7 +98,7 @@ def cnn(x_train, y_train, x_test, y_test):
 	#training
 	batch_size = 64
 	 
-	opt_rms = keras.optimizers.rmsprop(lr=0.001,decay=1e-6)
+	opt_rms = optimizers.RMSprop(lr=0.001,decay=1e-6)
 	model.compile(
 		loss='categorical_crossentropy',
 		optimizer=opt_rms,
